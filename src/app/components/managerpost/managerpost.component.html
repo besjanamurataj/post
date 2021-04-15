@@ -1,0 +1,32 @@
+<button type="button" class="btn btn-primary m-4" (click)="openModal()">
+  Add Post
+</button>
+<div class="container">
+  <table class="table table-bordered">
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let post of posts; trackBy: trackByFn">
+      <td>{{ post.id }}</td>
+      <td>{{ post.title }}</td>
+      <td>{{ post.body }}</td>
+      <td style="white-space: nowrap">
+        <button [routerLink] ="['/edit, post.id']"
+          class="btn btn-sm btn-primary mr-1"
+          (click)="openModal()"
+        >
+        Edit
+        </button>
+        <button
+          class="btn btn-sm btn-danger btn-delete-user"
+          (click)="openConfirm()"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>
